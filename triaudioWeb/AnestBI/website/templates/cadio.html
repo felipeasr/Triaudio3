@@ -1,0 +1,1495 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!-- Favicon icon -->
+  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'website/assets/images/favicon.png' %} ">
+  <title>Anest BI</title>
+  <!-- Custom CSS -->
+  <link href="{% static 'website/assets/libs/flot/css/float-chart.css' %}" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link href="{% static 'website/dist/css/style.min.css' %}" rel="stylesheet">
+  <link href="{% static 'website/bootstrap/bootstrap-5.0.0-beta1-dist/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'website/bootstrap/bootstrap-5.0.0-beta1-dist/css/bootstrap.css' %}" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link href="{%static 'website/dist/css/popup.css' %}">
+  <link href="{%static 'website/dist/js/popup.js' %}">
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+  <!-- ============================================================== -->
+  <!-- Main wrapper - style you can find in pages.scss -->
+  <!-- ============================================================== -->
+  <div id="main-wrapper">
+    <!-- ============================================================== -->
+    <!-- Topbar header - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <header class="topbar" data-navbarbg="skin5">
+      <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+        <div class="navbar-header" data-logobg="skin5">
+          <!-- This is for the sidebar toggle which is visible on mobile only -->
+          <a class="nav-toggler waves-effect waves-light d-block d-md-none"
+            href="{% static 'website/javascript:void(0)' %}"><i class="ti-menu ti-close"></i></a>
+          <!-- ============================================================== -->
+          <!-- Logo -->
+          <!-- ============================================================== -->
+          <a class="navbar-brand" href="{% url 'home'%}">
+            <!-- Logo icon -->
+            <b class="logo-icon p-l-10">
+              <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+              <!-- Dark Logo icon -->
+              <img src="{%static 'website/assets/images/logo-icon.png '%} " alt="Anest BI" class="light-logo" />
+
+            </b>
+            <!--End Logo icon -->
+            <!-- Logo text -->
+            <span class="logo-text">
+              <!-- dark Logo text -->
+              <img src="{%static 'website/assets/images/logo-anest.png' %}" alt="Anest BI" class="light-logo" />
+
+            </span>
+            <!-- Logo icon -->
+            <!-- <b class="logo-icon"> -->
+            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+            <!-- Dark Logo icon -->
+            <!-- <img src="assets/images/logo-text.png" alt="homepage" class="light-logo" /> -->
+
+            <!-- </b> -->
+            <!--End Logo icon -->
+          </a>
+          <!-- ============================================================== -->
+          <!-- End Logo -->
+          <!-- ============================================================== -->
+          <!-- ============================================================== -->
+          <!-- Toggle which is visible on mobile only -->
+          <!-- ============================================================== -->
+          <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)"
+            data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation"><i class="ti-more"></i></a>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Logo -->
+        <!-- ============================================================== -->
+        <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
+          <!-- ============================================================== -->
+          <!-- toggle and nav items -->
+          <!-- ============================================================== -->
+          <ul class="navbar-nav float-left mr-auto">
+            <li class="nav-item d-none d-md-block"><a class="nav-link sidebartoggler waves-effect waves-light"
+                href="javascript:void(0)" data-sidebartype="mini-sidebar"><i class="mdi mdi-menu font-24"></i></a></li>
+            <!-- ============================================================== -->
+            <!-- create new -->
+            <!-- ============================================================== -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <span class="d-none d-md-block">Create New <i class="fa fa-angle-down"></i></span>
+                <span class="d-block d-md-none"><i class="fa fa-plus"></i></span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>
+            <!-- ============================================================== -->
+            <!-- Search -->
+            <!-- ============================================================== -->
+            <li class="nav-item search-box"><a class="nav-link waves-effect waves-dark" href="javascript:void(0)"><i
+                  class="ti-search"></i></a>
+              <form class="app-search position-absolute">
+                <input type="text" class="form-control" placeholder="Search &amp; enter"> <a class="srh-btn"><i
+                    class="ti-close"></i></a>
+              </form>
+            </li>
+          </ul>
+          <!-- ============================================================== -->
+          <!-- Right side toggle and nav items -->
+          <!-- ============================================================== -->
+          <ul class="navbar-nav float-right">
+            <!-- ============================================================== -->
+            <!-- Comment -->
+            <!-- ============================================================== -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false"> <i class="mdi mdi-bell font-24"></i>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>
+            <!-- ============================================================== -->
+            <!-- End Comment -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Messages -->
+            <!-- ============================================================== -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" id="2" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false"> <i class="font-24 mdi mdi-comment-processing"></i>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right mailbox animated bounceInDown" aria-labelledby="2">
+                <ul class="list-style-none">
+                  <li>
+                    <div class="">
+                      <!-- Message -->
+                      <a href="javascript:void(0)" class="link border-top">
+                        <div class="d-flex no-block align-items-center p-10">
+                          <span class="btn btn-success btn-circle"><i class="ti-calendar"></i></span>
+                          <div class="m-l-10">
+                            <h5 class="m-b-0">Event today</h5>
+                            <span class="mail-desc">Just a reminder that event</span>
+                          </div>
+                        </div>
+                      </a>
+                      <!-- Message -->
+                      <a href="javascript:void(0)" class="link border-top">
+                        <div class="d-flex no-block align-items-center p-10">
+                          <span class="btn btn-info btn-circle"><i class="ti-settings"></i></span>
+                          <div class="m-l-10">
+                            <h5 class="m-b-0">Settings</h5>
+                            <span class="mail-desc">You can customize this template</span>
+                          </div>
+                        </div>
+                      </a>
+                      <!-- Message -->
+                      <a href="javascript:void(0)" class="link border-top">
+                        <div class="d-flex no-block align-items-center p-10">
+                          <span class="btn btn-primary btn-circle"><i class="ti-user"></i></span>
+                          <div class="m-l-10">
+                            <h5 class="m-b-0">Pavan kumar</h5>
+                            <span class="mail-desc">Just see the my admin!</span>
+                          </div>
+                        </div>
+                      </a>
+                      <!-- Message -->
+                      <a href="javascript:void(0)" class="link border-top">
+                        <div class="d-flex no-block align-items-center p-10">
+                          <span class="btn btn-danger btn-circle"><i class="fa fa-link"></i></span>
+                          <div class="m-l-10">
+                            <h5 class="m-b-0">Luanch Admin</h5>
+                            <span class="mail-desc">Just see the my new admin!</span>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <!-- ============================================================== -->
+            <!-- End Messages -->
+            <!-- ============================================================== -->
+
+            <!-- ============================================================== -->
+            <!-- User profile and search -->
+            <!-- ============================================================== -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href=""
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/1.jpg"
+                  alt="user" class="rounded-circle" width="31"></a>
+              <div class="dropdown-menu dropdown-menu-right user-dd animated">
+                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user m-r-5 m-l-5"></i>
+                  My
+                  Profile</a>
+                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-wallet m-r-5 m-l-5"></i>
+                  My
+                  Balance</a>
+                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-email m-r-5 m-l-5"></i>
+                  Inbox</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-settings m-r-5 m-l-5"></i>
+                  Account Setting</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="javascript:void(0)"><i class="fa fa-power-off m-r-5 m-l-5"></i>
+                  Logout</a>
+                <div class="dropdown-divider"></div>
+                <div class="p-l-30 p-10"><a href="javascript:void(0)" class="btn btn-sm btn-success btn-rounded">View
+                    Profile</a>
+                </div>
+              </div>
+            </li>
+            <!-- ============================================================== -->
+            <!-- User profile and search -->
+            <!-- ============================================================== -->
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <!-- ============================================================== -->
+    <!-- End Topbar header -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Left Sidebar - style you can find in sidebar.scss  -->
+    <!-- ============================================================== -->
+    <aside class="left-sidebar" data-sidebarbg="skin5">
+      <!-- Sidebar scroll-->
+      <div class="scroll-sidebar">
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav">
+          <ul id="sidebarnav" class="p-t-30">
+            <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.html"
+                aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a>
+            </li>
+            <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link" href="charts.html"
+                aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span class="hide-menu">Buscar</span></a></li>
+            <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link" href="widgets.html"
+                aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span class="hide-menu">Lista de
+                  Pacientes</span></a></li>
+            <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link" href="tables.html"
+                aria-expanded="false"><i class="mdi mdi-border-inside"></i><span class="hide-menu">Lista de
+                  Análises</span></a></li>
+            <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link" href="grid.html"
+                aria-expanded="false"><i class="mdi mdi-blur-linear"></i><span class="hide-menu">Perfil</span></a></li>
+            <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link" href="grid.html"
+                aria-expanded="false"><i class="mdi mdi-blur-linear"></i><span class="hide-menu">Sair</span></a>
+
+          </ul>
+        </nav>
+        <!-- End Sidebar navigation -->
+      </div>
+      <!-- End Sidebar scroll-->
+    </aside>
+    <!-- ============================================================== -->
+    <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Page wrapper  -->
+    <!-- ============================================================== -->
+    <div class="page-wrapper">
+      <!-- ============================================================== -->
+      <!-- Bread crumb and right sidebar toggle -->
+      <!-- ============================================================== -->
+      <div class="page-breadcrumb">
+        <div class="row">
+          <div class="col-12 d-flex no-block align-items-center">
+            <h4 class="page-title">AVALIAÇÃO CARDIOVASCULAR</h4>
+            <div class="ml-auto text-right">
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="#">Início</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Bibliotecas</li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ============================================================== -->
+      <!-- End Bread crumb and right sidebar toggle -->
+      <!-- ============================================================== -->
+      <!-- ============================================================== -->
+      <!-- Container fluid  -->
+      <!-- ============================================================== -->
+      <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Sales Cards  -->
+        <!-- ============================================================== -->
+        <div class="row">
+          <!-- Column -->
+          <div class="col-md-6 col-lg-2 col-xlg-3">
+            <div class="card card-hover">
+              <div class="box bg-cyan text-center">
+                <button type="button" class="trigger_popup_fricc" data-toggle="collapse" data-target="#demo">
+                  <h6>SCORE DE LEE</h6></button>
+              </div>
+            </div>
+          </div>
+          <!-- Column -->
+          <div class="col-md-6 col-lg-2 col-xlg-3">
+            <div class="card card-hover">
+              <div class="box bg-cyan text-center">
+                <button type="button" class="trigger_popup_fricc" data-toggle="collapse" data-target="#demo2">Escore de
+                  AUB-HAS2</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column -->
+          <!-- Column -->
+          <div class="col-md-6 col-lg-2 col-xlg-3">
+            <div class="card card-hover">
+              <div class="box bg-cyan text-center">
+                <button type="button" class="trigger_popup_fricc" data-toggle="collapse" data-target="#demo3">Cálculo de MET
+                  (Duke acticity status index)</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column -->
+          <div class="col-md-6 col-lg-2 col-xlg-3">
+            <div class="card card-hover">
+              <div class="box bg-cyan text-center">
+                <button type="button" class="trigger_popup_fricc" data-toggle="collapse" data-target="#demo4">Delirium</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column -->
+          <div class="col-md-6 col-lg-2 col-xlg-3">
+            <div class="card card-hover">
+              <div class="box bg-cyan text-center">
+                <button type="button" class="trigger_popup_fricc" data-toggle="collapse" data-target="#demo5">Risco Instrínsico
+                  da cirurgia</button>
+              </div>
+            </div>
+          </div>
+          <!-- Column -->
+           <!-- Column -->
+           <div class="col-md-6 col-lg-2 col-xlg-3">
+            <div class="card card-hover">
+              <div class="box bg-cyan text-center">
+                <button type="button" class="trigger_popup_fricc" data-toggle="collapse" data-target="#demo7">
+                  Condições de alto risco perioperatório 
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Column -->
+          <div class="col-md-6 col-lg-2 col-xlg-3">
+            <div class="card card-hover">
+              <div class="box bg-cyan text-center">
+                <button type="button" data-toggle="collapse" data-target="#demo6">Trombose venosa
+                  profunda</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- Sales chart -->
+        <!-- ============================================================== -->
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-md-flex align-items-center">
+                </div>
+                <div class="row">
+                  <!-- column -->
+                  <div class="container">
+                    <div id="demo" class="collapse">
+                      <!--SCORE DE LEE-->
+                      <form class="form-horizontal" action="{% url 'cadio' %}" method="post">
+                        {% csrf_token %}
+                        <div>
+                          <h1 class="card-title">SCORE DE LEE</h1>
+                        </div>
+                        <h4><label class="form-label">Operação intraperitoneal?</label></h4>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="operacao-intraperitoneal-sim" id="flexRadioDefault1" value="sim" required>
+                          <label class="form-check-label" for="operacao-intraperitoneal-sim">
+                            SIM
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="operacao-intraperitoneal-sim" id="flexRadioDefault2" value="nao" required >
+                          <label class="form-check-label" for="operacao-intraperitoneal-nao">
+                            NÃO
+                          </label>
+                        </div>
+                        <h4><label class="form-label">Intratorácica ou vascular suprainguinal?</label></h4>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="intratoracica" id="flexRadioDefault1" value="sim" required>
+                          <label class="form-check-label" for="flexRadioDefault1">
+                            SIM
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="intratoracica" id="flexRadioDefault2" value="nao" required>
+                          <label class="form-check-label" for="flexRadioDefault2">
+                            NÃO
+                          </label>
+                        </div>
+
+                        <h4><label class="form-label">História de doença arterial coronariana? </label></h4>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="histDoencaArter" id="flexRadioDefault1" value="sim" required>
+                          <label class="form-check-label" for="flexRadioDefault1">
+                            SIM
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="histDoencaArter" id="flexRadioDefault2" value="nao" required>
+                          <label class="form-check-label" for="flexRadioDefault2">
+                            NÃO
+                          </label>
+                        </div>
+
+                        <h4><label class="form-label">História de insuficiência cardíaca? </label></h4>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="histInsufCard" id="flexRadioDefault1" value="sim" required>
+                          <label class="form-check-label" for="flexRadioDefault1">
+                            SIM
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="histInsufCard" id="flexRadioDefault2" value="nao" required>
+                          <label class="form-check-label" for="flexRadioDefault2">
+                            NÃO
+                          </label>
+                        </div>
+
+                        <h4><label class="form-label">História de doença cerebrovascular?</label></h4>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="histCerebrovascular" id="flexRadioDefault1" value="sim" required>
+                          <label class="form-check-label" for="flexRadioDefault1">
+                            SIM
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="histCerebrovascular" id="flexRadioDefault2" value="nao" required>
+                          <label class="form-check-label" for="flexRadioDefault2">
+                            NÃO
+                          </label>
+                        </div>
+
+                        <h4><label class="form-label">Diabetes mellitus com insulinoterapia?</label></h4>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="diabComInsuli" id="flexRadioDefault1" value="sim" required>
+                          <label class="form-check-label" for="flexRadioDefault1">
+                            SIM
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="diabComInsuli" id="flexRadioDefault2" value="nao" required>
+                          <label class="form-check-label" for="flexRadioDefault2">
+                            NÃO
+                          </label>
+                        </div>
+
+                        <h4><label class="form-label">Creatinina pré-operatória >2,0mg/dL?</label></h4>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="creatPreOp2mg" id="flexRadioDefault1" value="sim" required>
+                          <label class="form-check-label" for="flexRadioDefault1">
+                            SIM
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="creatPreOp2mg" id="flexRadioDefault2" value="nao" required>
+                          <label class="form-check-label" for="flexRadioDefault2">
+                            NÃO
+                          </label>
+                        </div>
+                        <br>
+                        <div class="border-top">
+                          <div class="card-body">
+                            <input type="submit" name="enviar" valor="Enviar" class="btn btn-primary"/>
+                          </div>
+                        </div>
+                        <br>
+                        <div class="border-top">
+                          <div class="card-body">
+                            <h3>Resultado</h3>
+                            {{ resultado }}
+                            {{diab_Com_Insuli}}
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                   <!-- End SCORE DE LEE-->
+                  <!-- AUB-HAS2 -->
+                  <div class="container"> 
+                    <div id="demo2" class="collapse">
+                      <form action="{% url 'cadio' %}" mathod ="post">
+                        {% csrf_token %}
+                        <div>
+                          <h1 class="card-title">Escore de AUB-HAS2</h1>
+                        </div>
+                        <h4><label class="form-label">Idade igual ao maior que 75?</label></h4>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="AUBidade" id="flexRadioDefault1" required value="sim">
+                          <label class="form-check-label" for="flexRadioDefault1">
+                            SIM
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="AUBidade" id="flexRadioDefault2" required value="nao">
+                          <label class="form-check-label" for="flexRadioDefault2">
+                            NÃO
+                          </label>
+                        </div>
+                        <h4><label class="form-label">Hemoglobina menor ou igual à 12?</label></h4>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="AUBhemoglobina" id="flexRadioDefault1" required value="sim">
+                          <label class="form-check-label" for="flexRadioDefault1">
+                            SIM
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="AUBhemoglobina" id="flexRadioDefault2" required value ="nao">
+                          <label class="form-check-label" for="flexRadioDefault2">
+                            NÃO
+                          </label>
+                        </div>
+                        <h4><label class="form-label">História de cardiopatia (infarto prévio, angioplastia coronariana,
+                            cirurgia cardíaca, insuficiência cardíaca, valvopatia moderada/importante na
+                            ecografia)?</label></h4>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="AUBcardiopatia" id="flexRadioDefault1" required value ="sim">
+                          <label class="form-check-label" for="flexRadioDefault1">
+                            SIM
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="AUBcardiopatia" id="flexRadioDefault2" required value = "nao">
+                          <label class="form-check-label" for="flexRadioDefault2">
+                            NÃO
+                          </label>
+                        </div>
+                        <h4><label class="form-label">Angina ou dispnéia (dor torácica opressiva aos esforços, falta de ar
+                            aos esforços habituais)?</label></h4>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="AUBangina" id="flexRadioDefault1" required value ="sim">
+                          <label class="form-check-label" for="flexRadioDefault1">
+                            SIM
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="AUBangina" id="flexRadioDefault2" required value = "nao">
+                          <label class="form-check-label" for="flexRadioDefault2">
+                            NÃO
+                          </label>
+                        </div>
+                        <h4><label class="form-label">Cirurgia vascular? </label></h4>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="AUBvascular" id="flexRadioDefault1" required value ="sim">
+                          <label class="form-check-label" for="flexRadioDefault1">
+                            SIM
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="AUBvascular" id="flexRadioDefault2" required value = "nao">
+                          <label class="form-check-label" for="flexRadioDefault2">
+                            NÃO
+                          </label>
+                        </div>
+                        <h4><label class="form-label">Cirurgia de emergência?</label></h4>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="AUBemergencia" id="flexRadioDefault1" required value ="sim">
+                          <label class="form-check-label" for="flexRadioDefault1">
+                            SIM
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="AUBemergencia" id="flexRadioDefault2" required value = "nao">
+                          <label class="form-check-label" for="flexRadioDefault2">
+                            NÃO
+                          </label>
+                        </div>
+                        
+                        <div class="border-top">
+                          <div class="card-body">
+                            <input type="submit" name="enviar" valor="Enviar" class="btn btn-primary"/>
+                          </div>
+                        </div>
+                      </form>
+                      
+                    </div>
+                  </div>
+                    <!-- END AUB-HAS2 --> 
+                  <!-- ============================================================== -->
+                  <!-- Cálculo de MET --> 
+                  <div class="container"> 
+                    <div id="demo3" class="collapse">
+                      <form class="form-horizontal" action="{% url 'cadio' %}" method="post">
+                        {% csrf_token %}
+                        <div>
+                          <h1 class="card-title">Cálculo de MET (Duke acticity status index)</h1>
+                        </div>
+                        <h4><label class="form-label">Consegue cuidar de si mesmo, isto é, comer, vestir-se, tomar banho
+                            ou ir ao banheiro?</label></h4>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="MET" id="flexRadioDefault1" value="sim" required>
+                          <label class="form-check-label" for="flexRadioDefault1">
+                            SIM
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="MET" id="flexRadioDefault2" value="nao" required>
+                          <label class="form-check-label" for="flexRadioDefault2">
+                            NÃO
+                          </label>
+                        </div>
+                        <h4><label class="form-label">Andar em ambientes fechados, como em sua casa? </label></h4>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="MET1" id="flexRadioDefault1" value="sim" required>
+                          <label class="form-check-label" for="flexRadioDefault1">
+                            SIM
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="MET1" id="flexRadioDefault2" value="nao" required>
+                          <label class="form-check-label" for="flexRadioDefault2">
+                            NÃO
+                          </label>
+                        </div>
+                        <h4><label class="form-label">Andar um quarteirão ou dois em terreno plano?</label></h4>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="MET2" id="flexRadioDefault1" value="sim" required>
+                          <label class="form-check-label" for="flexRadioDefault1">
+                            SIM
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="MET2" id="flexRadioDefault2" value="nao" required>
+                          <label class="form-check-label" for="flexRadioDefault2">
+                            NÃO
+                          </label>
+                        </div>
+                        <h4><label class="form-label">Subir um lance de escadas ou subir um morro?</label></h4>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="MET3" id="flexRadioDefault1" value="sim" required>
+                          <label class="form-check-label" for="flexRadioDefault1">
+                            SIM
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="MET3" id="flexRadioDefault2" value="nao" required>
+                          <label class="form-check-label" for="flexRadioDefault2">
+                            NÃO
+                          </label>
+                        </div>
+                        <h4><label class="form-label">Correr uma distância curta? </label></h4>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="MET4" id="flexRadioDefault1" value="sim" required>
+                          <label class="form-check-label" for="flexRadioDefault1">
+                            SIM
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="MET4" id="flexRadioDefault2" value="nao"required>
+                          <label class="form-check-label" for="flexRadioDefault2">
+                            NÃO
+                          </label>
+                        </div>
+                        <h4><label class="form-label">Fazer tarefas domésticas leves como tirar pó ou lavar a
+                            louça?</label></h4>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="MET5" id="flexRadioDefault1" value="sim" required>
+                          <label class="form-check-label" for="flexRadioDefault1">
+                            SIM
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="MET5" id="flexRadioDefault2" value="nao" required>
+                          <label class="form-check-label" for="flexRadioDefault2">
+                            NÃO
+                          </label>
+                        </div>
+                        <h4><label class="form-label">Fazer tarefas domésticas moderadas como passar o aspirador de pó,
+                            varrer o chão ou carregar as compras de supermercado?</label></h4>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="MET6" id="flexRadioDefault1" value="sim" required>
+                          <label class="form-check-label" for="flexRadioDefault1">
+                            SIM
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="MET6" id="flexRadioDefault2" value="nao"required>
+                          <label class="form-check-label" for="flexRadioDefault2">
+                            NÃO
+                          </label>
+                        </div>
+                        <h4><label class="form-label">Fazer tarefas domésticas pesadas como esfregar o chão com as mãos
+                            usando uma escova ou deslocar móveis pesados do lugar? </label></h4>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="MET7" id="flexRadioDefault1" value="sim"required>
+                          <label class="form-check-label" for="flexRadioDefault1">
+                            SIM
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="MET7" id="flexRadioDefault2" value="nao"required>
+                          <label class="form-check-label" for="flexRadioDefault2">
+                            NÃO
+                          </label>
+                        </div>
+                        <h4><label class="form-label">Fazer trabalhos de jardinagem como recolher folhas, capinar ou usar
+                            um cortador elétrico de grama?</label></h4>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="MET8" id="flexRadioDefault1" value="sim"required>
+                          <label class="form-check-label" for="flexRadioDefault1">
+                            SIM
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="MET8" id="flexRadioDefault2" value="nao"required>
+                          <label class="form-check-label" for="flexRadioDefault2">
+                            NÃO
+                          </label>
+                        </div>
+                        <h4><label class="form-label">Ter relações sexuais?</label></h4>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="MET9" id="flexRadioDefault1" value="sim"required>
+                          <label class="form-check-label" for="flexRadioDefault1">
+                            SIM
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="MET9" id="flexRadioDefault2" value="nao"required>
+                          <label class="form-check-label" for="flexRadioDefault2">
+                            NÃO
+                          </label>
+                        </div>
+                        <h4><label class="form-label">Participar de atividades recreativas moderadas como vôlei, boliche,
+                            dança, tênis em dupla, andar de bicicleta ou fazer hidroginástica? </label></h4>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="MET10" id="flexRadioDefault1" value="sim"required>
+                          <label class="form-check-label" for="flexRadioDefault1">
+                            SIM
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="MET10" id="flexRadioDefault2" value="nao" required>
+                          <label class="form-check-label" for="flexRadioDefault2">
+                            NÃO
+                          </label>
+                        </div>
+                        <h4><label class="form-label">Participar de esportes extenuantes como natação, tênis individual,
+                            futebol, basquetebol ou corrida? </label></h4>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="MET11" id="flexRadioDefault1" value="sim" required>
+                          <label class="form-check-label" for="flexRadioDefault1">
+                            SIM
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="MET11" id="flexRadioDefault2" value="nao" required>
+                          <label class="form-check-label" for="flexRadioDefault2">
+                            NÃO
+                          </label>
+                        </div>
+                        <div class="border-top">
+                          <div class="card-body">
+                            <input type="submit" name="enviar" valor="Enviar" class="btn btn-primary"/>
+                          </div>
+                        </div>
+                        <br>
+                        <div class="border-top">
+                          <div class="card-body">
+                            <h3>Resultado</h3>
+                           <h3>Mets:</h3> {{ somaMet }}
+                            <h3>VO2 máx:</h3>{{ VO2 }}
+                          </div>
+                        </div>
+                      </form>
+                     
+                    </div>
+
+                  </div>
+                  
+                  <!-- END Cálculo de MET --> 
+                  <!-- ============================================================== -->
+                  <!-- Delirium -->
+                  <div class="container"> 
+                    <div id="demo4" class="collapse">
+                      <form class="form-horizontal" action="{% url 'cadio' %}" method="post"> 
+                        {% csrf_token %}
+                        <div>
+                          <h1 class="card-title">Delirium</h1>
+                        </div>
+                        <h4><label class="form-label">IDADE 60-69? </label></h4>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="idade60" id="flexRadioDefault1" value="sim" required>
+                          <label class="form-check-label" for="flexRadioDefault1">
+                            SIM
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="idade60" id="flexRadioDefault2" value="nao" required>
+                          <label class="form-check-label" for="flexRadioDefault2">
+                            NÃO
+                          </label>
+                        </div>
+                        <h4><label class="form-label">70-79?</label></h4>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="idade70" id="flexRadioDefault1" value="sim" required>
+                          <label class="form-check-label" for="flexRadioDefault1">
+                            SIM
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="idade70" id="flexRadioDefault2" value="nao" required>
+                          <label class="form-check-label" for="flexRadioDefault2">
+                            NÃO
+                          </label>
+                        </div>
+                        <h4><label class="form-label">80 OU MAIS?</label></h4>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="idade80" id="flexRadioDefault1" value="sim" required >
+                          <label class="form-check-label" for="flexRadioDefault1">
+                            SIM
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="idade80" id="flexRadioDefault2" value="nao"required>
+                          <label class="form-check-label" for="flexRadioDefault2">
+                            NÃO
+                          </label>
+                        </div>
+                        <h4><label class="form-label">ATIVIDADES DIÁRIAS AUTO-SUFICIENTE? </label></h4>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="atividades" id="flexRadioDefault1" value="sim" required>
+                          <label class="form-check-label" for="flexRadioDefault1">
+                            SIM
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="atividades" id="flexRadioDefault2" value="nao" required>
+                          <label class="form-check-label" for="flexRadioDefault2">
+                            NÃO
+                          </label>
+                        </div>
+                        <h4><label class="form-label">NECESSITA DE AUXÍLIO? </label></h4>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="auxilio" id="flexRadioDefault1" value="sim" required>
+                          <label class="form-check-label" for="flexRadioDefault1">
+                            SIM
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="auxilio" id="flexRadioDefault2" value="nao" required>
+                          <label class="form-check-label" for="flexRadioDefault2">
+                            NÃO
+                          </label>
+                        </div>
+                        <h4><label class="form-label">CONSUMO AUMENTADO DE ÁLCOOL NÃO? </label></h4>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="alcool" id="flexRadioDefault1" value="sim" required>
+                          <label class="form-check-label" for="flexRadioDefault1">
+                            SIM
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="alcool" id="flexRadioDefault2" value="nao" required>
+                          <label class="form-check-label" for="flexRadioDefault2">
+                            NÃO
+                          </label>
+                        </div>
+                        <h4><label class="form-label">HISTÓRIA DE DELIRIUM NÃO?</label></h4>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="Delirium" id="flexRadioDefault1" value="sim" required>
+                          <label class="form-check-label" for="flexRadioDefault1">
+                            SIM
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="Delirium" id="flexRadioDefault2" value="nao" required>
+                          <label class="form-check-label" for="flexRadioDefault2">
+                            NÃO
+                          </label>
+                        </div>
+                        <h4><label class="form-label">CIRURGIA ABERTA NÃO?</label></h4>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="cirugia" id="flexRadioDefault1" value="sim" required>
+                          <label class="form-check-label" for="flexRadioDefault1">
+                            SIM
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="cirugia" id="flexRadioDefault2" value="nao" required>
+                          <label class="form-check-label" for="flexRadioDefault2">
+                            NÃO
+                          </label>
+                        </div>
+                        <h4><label class="form-label">CIRURGIA DE EMERGÊNCIA NÃO? </label></h4>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="emergencia" id="flexRadioDefault1" value="sim" required>
+                          <label class="form-check-label" for="flexRadioDefault1">
+                            SIM
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="emergencia" id="flexRadioDefault2" value="nao" required>
+                          <label class="form-check-label" for="flexRadioDefault2">
+                            NÃO
+                          </label>
+                        </div>
+                        <h4><label class="form-label">PROTEÍNA-C REATIVA < 10mg/dL? </label> </h4> <div class="form-check">
+                              <input class="form-check-input" type="radio" name="proteina" id="flexRadioDefault1" value="sim" required>
+                              <label class="form-check-label" for="flexRadioDefault1">
+                                SIM
+                              </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="proteina" id="flexRadioDefault2" value="nao" required>
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                  NÃO
+                                </label>
+                              </div>
+                              <div class="border-top">
+                                <div class="card-body">
+                                  <input type="submit" name="enviar" valor="Enviar" class="btn btn-primary"/>
+                                </div>
+                              </div>
+                              <br>
+                              <div class="border-top">
+                                <div class="card-body">
+                                  <h3>Resultado</h3>
+                                  {{ delirium }}
+                                  
+                                </div>
+                              </div>
+                      </form>
+                      
+                  </div>
+
+                  </div>
+                <!-- End Delirium -->
+                <!-- ============================================================== -->
+                <!-- Risco Instrínsico da cirurgia -->
+                <div class="container"> 
+                  <div id="demo5" class="collapse">
+                    <form class="form-horizontal" action="{% url 'cadio' %}" method="post"> 
+                      {% csrf_token %}
+                    <div>
+                      <h1 class="card-title">Risco Instrínsico da cirurgia</h1>
+                    </div>
+                    <h4><label class="form-label">Procedimento ambulatorial, endoscópico, mama, catarata, superficiais?
+                      </label></h4>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="risco" id="flexRadioDefault1" value="sim" required>
+                      <label class="form-check-label" for="flexRadioDefault1">
+                        SIM
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="risco" id="flexRadioDefault2" value="nao" required>
+                      <label class="form-check-label" for="flexRadioDefault2">
+                        NÃO
+                      </label>
+                    </div>
+                    <h4><label class="form-label">Procedimento de urgência, emergência, vasculares arteriais EXCETO
+                        endarterectomia de carótida e correção endovascular de Aorta?</label></h4>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="risco2" id="flexRadioDefault1" value="sim" required>
+                      <label class="form-check-label" for="flexRadioDefault1">
+                        SIM
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="risco2" id="flexRadioDefault2" value="nao" required>
+                      <label class="form-check-label" for="flexRadioDefault2">
+                        NÃO
+                      </label>
+                    </div>
+                    <h4><label class="form-label">Endarterectomia de carótida e correção endovascular de Aorta?</label></h4>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="risco3" id="flexRadioDefault1" value="sim" required>
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      SIM
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="risco3" id="flexRadioDefault2" value="nao" required>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                      NÃO
+                    </label>
+                  </div>
+                    <div class="border-top">
+                      <div class="card-body">
+                        <input type="submit" name="enviar" valor="Enviar" class="btn btn-primary"/>
+                      </div>
+                    </div>
+                    <div class="border-top">
+                      <div class="card-body">
+                        <h3>Resultado</h3>
+                        
+                        {{ riscoR }}
+                        
+                      </div>
+                    </div>
+
+                    </form>
+                      
+                  </div>
+                  
+
+                </div>
+                <!-- End Risco Instrínsico da cirurgia -->
+                 <!-- Condições de alto risco perioperatório -->
+                 <div class="container"> 
+                  <div id="demo7" class="collapse">
+                    <form class="form-horizontal" action="{% url 'cadio' %}" method="post"> 
+                      {% csrf_token %}
+                    <div>
+                      <h1 class="card-title">Condições de alto risco perioperatório </h1>
+                    </div>
+                    <h4><label class="form-label">Síndrome coronariana aguda há menos de 60 dias?
+                      </label></h4>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="sca" id="flexRadioDefault1" value="sim" required>
+                      <label class="form-check-label" for="flexRadioDefault1">
+                        SIM
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="sca" id="flexRadioDefault2" value="nao" required>
+                      <label class="form-check-label" for="flexRadioDefault2">
+                        NÃO
+                      </label>
+                    </div>
+                    <h4><label class="form-label">Insuficiencia cardíaca grave?</label></h4>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="icg" id="flexRadioDefault1" value="sim" required>
+                      <label class="form-check-label" for="flexRadioDefault1">
+                        SIM
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="icg" id="flexRadioDefault2" value="nao" required>
+                      <label class="form-check-label" for="flexRadioDefault2">
+                        NÃO
+                      </label>
+                    </div>
+                    <h4><label class="form-label">Arritmias graves (BAVT,TV,FV)?</label></h4>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="ag" id="flexRadioDefault1" value="sim" required>
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      SIM
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="ag" id="flexRadioDefault2" value="nao" required>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                      NÃO
+                    </label>  
+                  </div>
+                  <h4><label class="form-label">Valvuloparias importantes sintomáticas?</label></h4>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="vis" id="flexRadioDefault1" value="sim" required>
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      SIM
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="vis" id="flexRadioDefault2" value="nao" required>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                      NÃO
+                    </label>
+                  </div>
+                  <h4><label class="form-label">Hipertensão pulmonar?</label></h4>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="hp" id="flexRadioDefault1" value="sim" required>
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      SIM
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="hp" id="flexRadioDefault2" value="nao" required>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                      NÃO
+                    </label>
+                  </div>
+                  <h4><label class="form-label">Angina enstável CCS III-IV (angina com limitação das atividades habituais)? </label></h4>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="ae" id="flexRadioDefault1" value="sim" required>
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      SIM
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="ae" id="flexRadioDefault2" value="nao" required>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                      NÃO
+                    </label>
+                  </div>
+                  <h4><label class="form-label">FA com FC > 120bpm?</label></h4>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="fafc" id="flexRadioDefault1" value="sim" required>
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      SIM
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="fafc" id="flexRadioDefault2" value="nao" required>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                      NÃO
+                    </label>
+                  </div> 
+                  <h4><label class="form-label">PAS>180mmHg ou PAD > 110mmHg? </label></h4>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="pas" id="flexRadioDefault1" value="sim" required>
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      SIM
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="pas" id="flexRadioDefault2" value="nao" required>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                      NÃO
+                    </label>
+                  </div> 
+                  <h4><label class="form-label">Síndromes aórticas agudas?</label></h4>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="saa" id="flexRadioDefault1" value="sim" required>
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      SIM
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="saa" id="flexRadioDefault2" value="nao" required>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                      NÃO
+                    </label>
+                  </div> 
+
+                    <div class="border-top">
+                      <div class="card-body">
+                        <input type="submit" name="enviar" valor="Enviar" class="btn btn-primary"/>
+                      </div>
+                    </div>
+                    <div class="border-top">
+                      <div class="card-body">
+                        <button type="button" data-toggle="collapse" data-target="#demo7">Fecha</button>
+                      </div>
+                    </div>
+                    <div class="border-top">
+                      <div class="card-body">
+                        <h3>Pontuação:</h3>
+                        {{ carp }}
+                      </div>
+                    </div>
+
+                    </form>
+                      
+                  </div>
+                <!-- END Condições de alto risco perioperatório -->
+                <!-- Trombose -->
+                <div class="container"> 
+                  <div id="demo6" class="collapse">
+                    <div>
+                      <h1 class="card-title">Trombose venosa profunda</h1>
+                    </div>
+                    <h4><label class="form-label">idade entre 41 - 60 anos? </label></h4>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="Trombose" id="flexRadioDefault1" required>
+                      <label class="form-check-label" for="flexRadioDefault1">
+                        SIM
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="Trombose" id="flexRadioDefault2" required >
+                      <label class="form-check-label" for="flexRadioDefault2">
+                        NÃO
+                      </label>
+                    </div>
+                    <h4><label class="form-label">cirurgia menor planejada sob anestesia geral ou regional < 45
+                          min?</label> </h4> <div class="form-check">
+                          <input class="form-check-input" type="radio" name="Trombose1" id="flexRadioDefault1" required>
+                          <label class="form-check-label" for="flexRadioDefault1">
+                            SIM
+                          </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="Trombose1" id="flexRadioDefault2" required>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                      NÃO
+                    </label>
+                  </div>
+  
+                  <h4><label class="form-label">Histórico (<1 mês ) de cirurgia sob anestesia geral ou regional> 45 min?
+                    </label></h4>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="Trombose2" id="flexRadioDefault1" required>
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      SIM
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="Trombose2" id="flexRadioDefault2" required>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                      NÃO
+                    </label>
+                  </div>
+                  <h4><label class="form-label">Veias varicosas visíveis? </label></h4>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="Trombose3" id="flexRadioDefault1" required>
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      SIM
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="Trombose3" id="flexRadioDefault2" required>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                      NÃO
+                    </label>
+                  </div>
+                  <h4><label class="form-label">Doença inflamatória intestinal (Doença de Chron ou colite ulcerativa)?
+                    </label></h4>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="Trombose4" id="flexRadioDefault1" required>
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      SIM
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="Trombose4" id="flexRadioDefault2" required>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                      NÃO
+                    </label>
+                  </div>
+                  <h4><label class="form-label">Edema de membro inferior atual? </label></h4>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="Trombose5" id="flexRadioDefault1" required>
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      SIM
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="Trombose5" id="flexRadioDefault2" required>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                      NÃO
+                    </label>
+                  </div>
+                  <h4><label class="form-label">IMC > 25? </label></h4>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="Trombose6" id="flexRadioDefault1" required>
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      SIM
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="Trombose6" id="flexRadioDefault2" required>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                      NÃO
+                    </label>
+                  </div>
+                  <h4><label class="form-label">Infarto agudo do miocárdio? </label></h4>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="Trombose7" id="flexRadioDefault1" required>
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      SIM
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="Trombose7" id="flexRadioDefault2" required>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                      NÃO
+                    </label>
+                  </div>
+                  <h4><label class="form-label">DPOC? </label></h4>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="Trombose8" id="flexRadioDefault1" required>
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      SIM
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="Trombose8" id="flexRadioDefault2" required>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                      NÃO
+                    </label>
+                  </div>
+                  <h4><label class="form-label">Insuficiência Cardíaca Congestiva (< 1 mês)? </label> </h4> <div
+                        class="form-check">
+                        <input class="form-check-input" type="radio" name="Trombose9" id="flexRadioDefault1" required>
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          SIM
+                        </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="Trombose9" id="flexRadioDefault2" required>
+                  <label class="form-check-label" for="flexRadioDefault2">
+                    NÃO
+                  </label>
+                </div>
+                <h4><label class="form-label">Sepse (< 1 mês)? </label> </h4> <div class="form-check">
+                      <input class="form-check-input" type="radio" name="Trombose10" id="flexRadioDefault1" required>
+                      <label class="form-check-label" for="flexRadioDefault1">
+                        SIM
+                      </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="Trombose10" id="flexRadioDefault2" required>
+                <label class="form-check-label" for="flexRadioDefault2">
+                  NÃO
+                </label>
+              </div>
+              <h4><label class="form-label">Doença pulmonar severa < 1 mês - ex Pneumonia? </label> </h4> <div
+                    class="form-check">
+                    <input class="form-check-input" type="radio" name="Trombose11" id="flexRadioDefault1" required>
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      SIM
+                    </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="Trombose11" id="flexRadioDefault2" required>
+              <label class="form-check-label" for="flexRadioDefault2">
+                NÃO
+              </label>
+            </div>
+            <h4><label class="form-label">Paciente em cuidados médicos atualmente em repouso? </label></h4>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="Trombose12" id="flexRadioDefault1" required>
+              <label class="form-check-label" for="flexRadioDefault1">
+                SIM
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="Trombose12" id="flexRadioDefault2" required>
+              <label class="form-check-label" for="flexRadioDefault2">
+                NÃO
+              </label>
+            </div>
+            <h4><label class="form-label">Uso de terapia anticoncepcional ou reposição hormonal? </label></h4>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="Trombose13" id="flexRadioDefault1" required>
+              <label class="form-check-label" for="flexRadioDefault1">
+                SIM
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="Trombose13" id="flexRadioDefault2" required>
+              <label class="form-check-label" for="flexRadioDefault2">
+                NÃO
+              </label>
+            </div>
+            <h4><label class="form-label">Gestão ou Pós-parto < 1 mês?</label> </h4> <div class="form-check">
+                  <input class="form-check-input" type="radio" name="Trombose14" id="flexRadioDefault1" required>
+                  <label class="form-check-label" for="flexRadioDefault1">
+                    SIM
+                  </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="Trombose14" id="flexRadioDefault2" required>
+            <label class="form-check-label" for="flexRadioDefault2">
+              NÃO
+            </label>
+          </div>
+          <h4><label class="form-label">Histórico de criança natimorta inexplicada, aborto espontâneo recorrente (>2),
+              nascimento prematuro com toxemia ou criança com restrição de crescimento? </label></h4>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="Trombose15" id="flexRadioDefault1" required>
+            <label class="form-check-label" for="flexRadioDefault1">
+              SIM
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="Trombose15" id="flexRadioDefault2" required>
+            <label class="form-check-label" for="flexRadioDefault2">
+              NÃO
+            </label>
+          </div>
+          <h4><label class="form-label">Outro fator de risco? </label></h4>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="Trombose16" id="flexRadioDefault1" required>
+            <label class="form-check-label" for="flexRadioDefault1">
+              SIM
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="Trombose16" id="flexRadioDefault2" required>
+            <label class="form-check-label" for="flexRadioDefault2">
+              NÃO
+            </label>
+          </div>
+          <h4><label class="form-label">"Idade entre 61 - 74 anos? </label></h4>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="Trombose17" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+              SIM
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="Trombose17" id="flexRadioDefault2">
+            <label class="form-check-label" for="flexRadioDefault2">
+              NÃO
+            </label>
+          </div>
+          <h4><label class="form-label">cirurgia de artroscopia? </label></h4>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="Trombose18" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+              SIM
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="Trombose18" id="flexRadioDefault2">
+            <label class="form-check-label" for="flexRadioDefault2">
+              NÃO
+            </label>
+          </div>
+          <h4><label class="form-label">Malignidade (presente ou prévia)? </label></h4>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="Trombose19" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+              SIM
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="Trombose19" id="flexRadioDefault2">
+            <label class="form-check-label" for="flexRadioDefault2">
+              NÃO
+            </label>
+          </div>
+        </div>
+      </div>
+
+     </div>
+                
+<!-- End Trombose -->
+
+
+    <div>
+   </div>
+  </div>
+</div>
+  <!-- ============================================================== -->
+  <!-- Sales chart -->
+  <!-- ============================================================== -->
+  <!-- ============================================================== -->
+  <!-- Recent comment and chats -->
+  <!-- ============================================================== -->
+
+  <!-- ============================================================== -->
+  <!-- All Jquery -->
+  <!-- ============================================================== -->
+  <script src="assets/libs/jquery/dist/jquery.min.js"></script>
+  <!-- Bootstrap tether Core JavaScript -->
+  <script src="assets/libs/popper.js/dist/umd/popper.min.js"></script>
+  <script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+  <script src="assets/extra-libs/sparkline/sparkline.js"></script>
+  <!--Wave Effects -->
+  <script src="dist/js/waves.js"></script>
+  <!--Menu sidebar -->
+  <script src="dist/js/sidebarmenu.js"></script>
+  <!--Custom JavaScript -->
+  <script src="dist/js/custom.min.js"></script>
+  <!--This page JavaScript -->
+  <!-- <script src="dist/js/pages/dashboards/dashboard1.js"></script> -->
+  <!-- Charts js Files -->
+  <script src="assets/libs/flot/excanvas.js"></script>
+  <script src="assets/libs/flot/jquery.flot.js"></script>
+  <script src="assets/libs/flot/jquery.flot.pie.js"></script>
+  <script src="assets/libs/flot/jquery.flot.time.js"></script>
+  <script src="assets/libs/flot/jquery.flot.stack.js"></script>
+  <script src="assets/libs/flot/jquery.flot.crosshair.js"></script>
+  <script src="assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+  <script src="dist/js/pages/chart/chart-page-init.js"></script>
+
+</body>
+
+</html>

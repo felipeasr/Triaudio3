@@ -1,0 +1,507 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Basic Page Info -->
+	<meta charset="utf-8">
+	<title>Triaudio</title>
+
+	<!-- Site favicon -->
+	<link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/Tri-Audio-logo.png' %}">
+	<link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/Tri-Audio-logo.png' %}">
+	<link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/Tri-Audio-logo.png' %}">
+
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- Google Font -->
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendors/styles/core.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendors/styles/icon-font.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'src/plugins/datatables/css/dataTables.bootstrap4.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'src/plugins/datatables/css/responsive.bootstrap4.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendors/styles/style.css' %}">
+  <link rel="stylesheet" href="{% static 'style/partials/page-profissional.css' %}">
+  <link rel="stylesheet" href="{% static 'style/partials/forms2.css' %}">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'fa/css/all.min.css' %}">
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-119386393-1');
+	</script>
+  
+</head>
+<body>
+	
+	<div class="header">
+		<div class="header-left">
+			<div class="menu-icon dw dw-menu"></div>
+		
+			<div class="header-search">
+				<form>
+					<h1><legend>Cadastro De Paciente</legend></h1>
+				</form>
+			</div>
+		</div>
+		<div class="header-right">
+			<div class="dashboard-setting user-notification">
+				<div class="dropdown">
+					<a class="dropdown-toggle no-arrow" href="javascript:;" data-toggle="right-sidebar">
+						<i class="dw dw-settings2"></i>
+					</a>
+				</div>
+        
+			</div>
+	
+		</div>
+	</div>
+
+	<div class="right-sidebar">
+		<div class="sidebar-title">
+			<h3 class="weight-600 font-16 text-blue">
+				Layout Settings
+				<span class="btn-block font-weight-400 font-12">User Interface Settings</span>
+			</h3>
+			<div class="close-sidebar" data-toggle="right-sidebar-close">
+				<i class="icon-copy ion-close-round"></i>
+			</div>
+		</div>
+		<div class="right-sidebar-body customscroll">
+			<div class="right-sidebar-body-content">
+				<h4 class="weight-600 font-18 pb-10">Header Background</h4>
+				<div class="sidebar-btn-group pb-30 mb-10">
+					<a href="javascript:void(0);" class="btn btn-outline-primary header-white active">White</a>
+					<a href="javascript:void(0);" class="btn btn-outline-primary header-dark">Dark</a>
+				</div>
+
+				<h4 class="weight-600 font-18 pb-10">Sidebar Background</h4>
+				<div class="sidebar-btn-group pb-30 mb-10">
+					<a href="javascript:void(0);" class="btn btn-outline-primary sidebar-light ">White</a>
+					<a href="javascript:void(0);" class="btn btn-outline-primary sidebar-dark active">Dark</a>
+				</div>
+
+				<h4 class="weight-600 font-18 pb-10">Menu Dropdown Icon</h4>
+				<div class="sidebar-radio-group pb-10 mb-10">
+					<div class="custom-control custom-radio custom-control-inline">
+						<input type="radio" id="sidebaricon-1" name="menu-dropdown-icon" class="custom-control-input" value="icon-style-1" checked="">
+						<label class="custom-control-label" for="sidebaricon-1"><i class="fa fa-angle-down"></i></label>
+					</div>
+					<div class="custom-control custom-radio custom-control-inline">
+						<input type="radio" id="sidebaricon-2" name="menu-dropdown-icon" class="custom-control-input" value="icon-style-2">
+						<label class="custom-control-label" for="sidebaricon-2"><i class="ion-plus-round"></i></label>
+					</div>
+					<div class="custom-control custom-radio custom-control-inline">
+						<input type="radio" id="sidebaricon-3" name="menu-dropdown-icon" class="custom-control-input" value="icon-style-3">
+						<label class="custom-control-label" for="sidebaricon-3"><i class="fa fa-angle-double-right"></i></label>
+					</div>
+				</div>
+
+				<h4 class="weight-600 font-18 pb-10">Menu List Icon</h4>
+				<div class="sidebar-radio-group pb-30 mb-10">
+					<div class="custom-control custom-radio custom-control-inline">
+						<input type="radio" id="sidebariconlist-1" name="menu-list-icon" class="custom-control-input" value="icon-list-style-1" checked="">
+						<label class="custom-control-label" for="sidebariconlist-1"><i class="ion-minus-round"></i></label>
+					</div>
+					<div class="custom-control custom-radio custom-control-inline">
+						<input type="radio" id="sidebariconlist-2" name="menu-list-icon" class="custom-control-input" value="icon-list-style-2">
+						<label class="custom-control-label" for="sidebariconlist-2"><i class="fa fa-circle-o" aria-hidden="true"></i></label>
+					</div>
+					<div class="custom-control custom-radio custom-control-inline">
+						<input type="radio" id="sidebariconlist-3" name="menu-list-icon" class="custom-control-input" value="icon-list-style-3">
+						<label class="custom-control-label" for="sidebariconlist-3"><i class="dw dw-check"></i></label>
+					</div>
+					<div class="custom-control custom-radio custom-control-inline">
+						<input type="radio" id="sidebariconlist-4" name="menu-list-icon" class="custom-control-input" value="icon-list-style-4" checked="">
+						<label class="custom-control-label" for="sidebariconlist-4"><i class="icon-copy dw dw-next-2"></i></label>
+					</div>
+					<div class="custom-control custom-radio custom-control-inline">
+						<input type="radio" id="sidebariconlist-5" name="menu-list-icon" class="custom-control-input" value="icon-list-style-5">
+						<label class="custom-control-label" for="sidebariconlist-5"><i class="dw dw-fast-forward-1"></i></label>
+					</div>
+					<div class="custom-control custom-radio custom-control-inline">
+						<input type="radio" id="sidebariconlist-6" name="menu-list-icon" class="custom-control-input" value="icon-list-style-6">
+						<label class="custom-control-label" for="sidebariconlist-6"><i class="dw dw-next"></i></label>
+					</div>
+				</div>
+
+				<div class="reset-options pt-30 text-center">
+					<button class="btn btn-danger" id="reset-settings">Reset Settings</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="left-side-bar">
+		<div class="brand-logo">
+			<a href="{%url 'dash' %}">
+				<img src="{% static 'images/Tri-Audio-logo.png' %}" class="dark-logo">
+				<img src="{% static 'images/logo2.svg' %}" class="light-logo">
+			</a>
+			<div class="close-sidebar" data-toggle="left-sidebar-close">
+				<i class="ion-close-round"></i>
+			</div>
+		</div>
+		<div class="menu-block customscroll">
+			<div class="sidebar-menu">
+				<ul id="accordion-menu">
+					<li class="dropdown">
+						<a href="javascript:;" class="dropdown-toggle">
+							<span class=""></span><span class="mtext">Gerenciamento </span>
+						</a>
+						<ul class="submenu">
+							<li><a href="{%url 'dash' %}">Dashboard</a></li>
+							<li><a href="{%url 'agenda' %}">Agenda</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="javascript:;" class="dropdown-toggle">
+							<span class=""></span><span class="mtext">Pacientes</span>
+						</a>
+						<ul class="submenu">
+							<li><a href="{%url 'cadastrogeral' %}">Cadastro Geral</a></li>
+							<li><a href="{%url 'novopaciente' %}">Novo Paciente</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="javascript:;" class="dropdown-toggle">
+							<span class=""></span><span class="mtext">TANU</span>
+						</a>
+						<ul class="submenu">
+							<li><a href="{%url 'teste' %}">Teste</a></li>
+							<li><a href="{%url 'reteste' %}">Reteste</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="javascript:;" class="dropdown-toggle">
+							<span class=""></span><span class="mtext"> Exames </span>
+						</a>
+						<ul class="submenu">
+							<li><a href="{%url 'medidasacusticas' %}">Medidas de imitância Acustica</a></li>
+							<li><a href="{%url 'Peate' %}">PEATE integridade</a></li>
+							<li><a href="{%url 'Peatefrequencia' %}">PEATE frequêcia Específica</a></li>
+							<li><a href="{%url 'EmissoesOtoacusticas'%}">Emissões Otoacústicas</a></li>
+							<li><a href="{%url 'Audiometria' %}">Audiometria de observação Comportamental</a></li>
+							<li><a href="ui-tooltip-popover.html">Audiometria de Reforço visual</a></li>
+							<li><a href="{%url 'audiometriacondicionada' %}">Audiometria condicionada</a></li>
+							<li><a href="{%url 'avaliacoesORL' %}">Diagnosticos/Avaliações ORL</a></li>
+							<li><a href="{%url 'avaliacoesmedicas' %}">Diagnosticos/Avaliações Médicas</a></li>
+							<li><a href="{%url 'conclusao' %}">conclusões</a></li>
+						</ul>
+					</li>
+					
+					<li>
+						<a href="calendar.html" class="dropdown-toggle no-arrow">
+							<span class=""></span><span class="mtext">Intervenção</span>
+						</a>
+					</li>
+					<li>
+						<a href="calendar.html" class="dropdown-toggle no-arrow">
+							<span class=""></span><span class="mtext">Simulador de Perda Auditiva</span>
+						</a>
+					</li>
+					<li>
+						<a href="calendar.html" class="dropdown-toggle no-arrow">
+							<span class=""></span><span class="mtext">Dicas</span>
+						</a>
+					</li>
+					<li>
+						<a href="calendar.html" class="dropdown-toggle no-arrow">
+							<span class=""></span><span class="mtext">Manual</span>
+						</a>
+					</li>
+					<li>
+						<a href="Index.html" class="dropdown-toggle no-arrow">
+							<span class=""></span><span class="mtext">SAIR</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="mobile-menu-overlay"></div>
+
+	<div class="main-container">
+    <div class="pd-20 card-box mb-30">
+    <form name="form"  id="form" method="post" action="/salvarpac/">			
+		
+		{% csrf_token %}
+        <legend>
+          Dados Neonato:
+        </legend>
+        
+        <div class="mb-3">
+			<label class="form-label"><h6>Nome:</h6></label>
+			{{form.nomeNeonato|as_crispy_field}}
+        </div>
+        <div class="mb-3">
+          <label for="formGroupExampleInput" class="form-label"><h6>Sobrenome:</h6></label>
+            {{form.sobreNeonato |as_crispy_field}}
+          
+        </div>
+        
+        <label for="sexo"><h6>Tipo Parto:</h6></label>
+        <div class="Select2 multi select">
+          {{form.Parto |as_crispy_field}}
+        </div>
+        <div class="mb-3"> 
+          <label for="sexo"><h6>Sexo:</h6></label>
+          {{form.sexo |as_crispy_field}}
+          
+        </div>
+        
+        
+        <label for="apgar"><h6> APGAR 1º minuto</h6></label>
+        <div class="form"> 
+          {{form.apgar|as_crispy_field}}
+        </div>
+        
+        <label for="apgar"><h6> APGAR 5º minuto</h6></label>
+        <div class="form"> 
+          {{form.apgar2|as_crispy_field}}
+        </div>
+      
+        <label for="irda"><h6>IRDA (Indicador de Risco para Deficiência Auditiva): </h6></label>
+          {{form.irda|as_crispy_field}}
+        <div>
+			<div class="form-group">
+				<label>Se sim, selecione:</label>
+				<select class="custom-select2 form-control" name="state" style="width: 100%; height: 38px;">
+					<optgroup>
+						<option value="text em branco"></option>
+						<option value="História familiar de perda auditiva">História familiar de perda auditiva</option>
+						<option value="Terapia Intensiva Neonatal (mais de 5 dias)">Terapia Intensiva Neonatal (mais de 5 dias)</option>
+						<option value="HI">Hiperbilirrubinemia com exsanguineotransfusão, independentemente do tempo de internação</option>
+						<option value="HI">Asfixia ou Encefalopatia Isquêmica Hipóxica </option>
+						<option value="HI">Oxigenação por membrana extracorpórea</option>
+						<option value="HI">Infecção intra-uterina: herpes</option>
+						<option value="HI">Infecção intra-uterina: rubéola</option>
+						<option value="HI"> Infecção intra-uterina: sífilis</option>
+						<option value="HI">Infecção intra-uterina: toxoplasmose</option>
+						<option value="HI">Infecção intra-uterina: citomegalovírus</option>
+						<option value="HI">Infecção intra-uterina: zika vírus</option>
+						<option value="HI">Malformações craniofaciais: microtia / atresia</option>
+						<option value="HI">Malformações craniofaciais: displasia de orelha</option>
+						<option value="HI">Malformações craniofaciais: fissuras orofaciais </option>
+						<option value="HI">Malformações craniofaciais: white forelock</option>
+						<option value="HI">Malformações craniofaciais: microftalmia</option>
+						<option value="HI">Microcefalia congênita</option>
+						<option value="HI">Hidrocefalia congênita ou adquirida</option>
+						<option value="HI">Anormalidades do osso temporal </option>
+						<option value="HI">Síndromes  identificadas com limiares auditivos atípicos</option>
+						<option value="HI">Perinatal ou Pós-natal</option>
+						<option value="HI">Infecções positivas para cultura associadas à perda auditiva sensorioneural, incluindo meningite ou encefalite bacteriana e viral confirmada (especialmente vírus do herpes e varicela)</option>
+						<option value="HI">Eventos associados à perda auditiva: traumatismo cranioencefálico significativo, especialmente fraturas da base do crânio / osso temporal</option>
+						<option value="HI">Eventos associados à perda auditiva: quimioterapia </option>
+						<option value="HI">Preocupação do cuidador em relação à audição, fala, linguagem, atraso no desenvolvimento e / ou regressão do desenvolvimento</option>
+						<option value="HI">Outro</option>
+						
+					</optgroup>
+					
+				</select>
+			</div>
+       </div>
+      
+        <div class="form-check">
+			<label class="form-check-label" for="defaultCheck1">
+				<input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="obito" aria-label="Óbito">
+				<label  class="form-check-label" for="obito"><h6>Óbito</h6></label>
+				
+			   </label>
+         
+        </div>
+
+        <legend><h6>Observações:</h6></legend>
+		<textarea cols="50" ></textarea>
+			
+          <div class="pd-20 card-box mb-30">
+  
+            <legend>
+              Dados Responsável:
+              </legend>
+              
+              <div class="mb-3">
+              <label for="formGroupExampleInput" class="form-label">Nome completo do responsável:</label>
+              {{form.nomeResponsavel|as_crispy_field}}
+              </div>
+              <div class="mb-3">
+              <label for="formGroupExampleInput" class="form-label">CPF do Responsável:</label>
+              {{form.cpf_responsavel|as_crispy_field}}
+              </div>
+              <div class="mb-3">
+              <label for="formGroupExampleInput" class="form-label">E-mail:</label>
+              {{form.email_responsavel|as_crispy_field}}
+              </div>
+              <div class="mb-3">
+              <label for="formGroupExampleInput" class="form-label">Celular 1:</label>
+              {{form.Telefone_respnsavel|as_crispy_field}}
+              </div>
+              <div class="mb-3">
+              <label for="formGroupExampleInput" class="form-label">Celular 2:</label>
+              {{form.Telefone_respnsavel2|as_crispy_field}}
+              </div>
+            </div>
+          
+			<div class="pd-20 card-box mb-30" >
+				  <legend>
+					Dados de Endereço:
+					</legend>
+					<div class="row">
+					  <div class="col-md-4 col-sm-12">
+						<div class="form-group">
+						  <label>CEP:</label>
+						  {{form.cep|as_crispy_field}}
+						</div>
+					  </div>
+					  <div class="col-md-4 col-sm-12">
+						<div class="form-group">
+						  <label>Endereço:</label>
+						  {{form.Endereco|as_crispy_field}}
+						</div>
+					  </div>
+					  <div class="col-md-4 col-sm-12">
+						<div class="form-group">
+						  <label>Número:</label>
+						  {{form.Numero|as_crispy_field}}
+						</div>
+					  </div>
+					</div>
+					<div class="row">
+					  <div class="col-md-3 col-sm-12">
+						<div class="form-group">
+						  <label>Bairro:</label>
+						  {{form.Bairro|as_crispy_field}}
+						</div>
+					  </div>
+					  <div class="col-md-3 col-sm-12">
+						<div class="form-group">
+						  <label>Cidade:</label>
+						  {{form.cidade|as_crispy_field}}
+						</div>
+					  </div>
+					  <div class="col-md-3 col-sm-12">
+						<div class="form-group">
+						  <label>Estado:</label>
+						  {{form.uf|as_crispy_field}}
+						</div>
+					  </div>
+					  <div class="col-md-3 col-sm-12">
+						<div class="form-group">
+						  <label>Complemento:</label>
+						  {{form.complemento|as_crispy_field}}
+						</div>
+					  </div>
+					</div>
+					<button  type="submit" class="btn btn-primary btn-sm">Salvar</button>
+					
+					
+				
+			  </div>
+   </div>
+  </form>
+   
+
+
+
+	</div>
+	<!-- js -->
+	<script src="{% static 'vendors/scripts/core.js' %}"></script>
+	<script src="{% static 'vendors/scripts/script.min.js' %}"></script>
+	<script src="{% static 'vendors/scripts/process.js' %}"></script>
+	<script src="{% static 'vendors/scripts/layout-settings.js' %}"></script>
+	<script src="{% static 'src/plugins/apexcharts/apexcharts.min.js' %}"></script>
+	<script src="{% static 'src/plugins/datatables/js/jquery.dataTables.min.js' %}"></script>
+	<script src="{% static 'src/plugins/datatables/js/dataTables.bootstrap4.min.js' %}"></script>
+	<script src="{% static 'src/plugins/datatables/js/dataTables.responsive.min.js' %}"></script>
+	<script src="{% static 'src/plugins/datatables/js/responsive.bootstrap4.min.js' %}"></script>
+	<script src="{% static 'vendors/scripts/dashboard.js' %}"></script>
+ 
+  <script >
+    const tel = document.getElementById('id_Telefone_respnsavel2') // Seletor do campo de telefone
+
+tel.addEventListener('keypress', (e) => mascaraTelefone(e.target.value)) // Dispara quando digitado no campo
+tel.addEventListener('change', (e) => mascaraTelefone(e.target.value)) // Dispara quando autocompletado o campo
+
+const mascaraTelefone = (valor) => {
+    valor = valor.replace(/\D/g, "")
+    valor = valor.replace(/^(\d{2})(\d)/g, "($1) $2")
+    valor = valor.replace(/(\d)(\d{4})$/, "$1-$2")
+    tel.value = valor // Insere o(s) valor(es) no campo
+}
+
+
+  </script>
+  <script >
+    const telefone = document.getElementById('id_Telefone_respnsavel') // Seletor do campo de telefone
+
+telefone.addEventListener('keypress', (e) => mascara(e.target.value)) // Dispara quando digitado no campo
+telefone.addEventListener('change', (e) => mascara(e.target.value)) // Dispara quando autocompletado o campo
+
+const mascara = (valor) => {
+    valor = valor.replace(/\D/g, "")
+    valor = valor.replace(/^(\d{2})(\d)/g, "($1) $2")
+    valor = valor.replace(/(\d)(\d{4})$/, "$1-$2")
+    telefone.value = valor // Insere o(s) valor(es) no campo
+}
+  </script>
+  <script>
+    const cpf = document.getElementById('id_cpf_responsavel') // Seletor do campo de CPF
+        
+    cpf.addEventListener('keypress', (e) => cpfmascara(e.target.value)) // Dispara quando digitado no campo
+    cpf.addEventListener('change', (e) => cpfmascara(e.target.value)) 
+    const cpfmascara = (valor)=>{
+      valor=valor.replace(/\D/g,"")
+      valor=valor.replace(/(\d{3})(\d)/,"$1.$2")
+      valor=valor.replace(/(\d{3})(\d)/,"$1.$2")
+      valor=valor.replace(/(\d{3})(\d{1,2})$/,"$1-$2")
+      cpf.value = valor
+}		
+  </script>
+  
+  <script type="text/javascript">
+		$("#id_cep").focusout(function(){
+			//Início do Comando AJAX
+			$.ajax({
+				//O campo URL diz o caminho de onde virá os dados
+				//É importante concatenar o valor digitado no CEP
+				url: 'https://viacep.com.br/ws/'+$(this).val()+'/json/unicode/',
+				//Aqui você deve preencher o tipo de dados que será lido,
+				//no caso, estamos lendo JSON.
+				dataType: 'json',
+				//SUCESS é referente a função que será executada caso
+				//ele consiga ler a fonte de dados com sucesso.
+				//O parâmetro dentro da função se refere ao nome da variável
+				//que você vai dar para ler esse objeto.
+				success: function(resposta){
+					//Agora basta definir os valores que você deseja preencher
+					//automaticamente nos campos acima.
+					$("#id_Endereco").val(resposta.logradouro);
+					$("#id_Bairro").val(resposta.bairro);
+					$("#id_cidade").val(resposta.localidade);
+					$("#id_uf").val(resposta.uf);
+					//Vamos incluir para que o Número seja focado automaticamente
+					//melhorando a experiência do usuário
+					$("#id_numero").focus();
+				}
+			});
+		});
+	</script>
+  
+</body>
+</html>
+
+
+
+
+
+
+
+ 

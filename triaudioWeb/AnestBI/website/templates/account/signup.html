@@ -1,0 +1,21 @@
+{% extends 'base3.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}Cadastro{% endblock %}
+
+{% block content %}
+
+    <form method="post">
+        {% csrf_token %}
+        
+        {{ form|crispy }}
+        <ul>A senha deverá ter no mínimo 8 caracteres e contar com, no mínimo, um(a):</ul>
+                <ol>- Letra Maiúscula;</ol>
+                <ol>- Letra Minúscula;</ol> 
+                <ol>- Numeral;</ol>
+                <ol>- Caracter Especial (#@$)</ol>
+                <ol>- Máximo 32 Caracteres</ol>
+        <button class="btn btn-success" type="submit">Cadastrar</button>
+    </form>
+{% endblock %}
